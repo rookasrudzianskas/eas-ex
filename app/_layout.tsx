@@ -1,10 +1,6 @@
-import {Slot} from 'expo-router';
-import * as SplashScreen from 'expo-splash-screen';
-import 'react-native-reanimated';
-import {ClerkLoaded, ClerkProvider} from "@clerk/clerk-expo";
-import * as SecureStore from 'expo-secure-store';
-
-SplashScreen.preventAutoHideAsync();
+import * as SecureStore from 'expo-secure-store'
+import { ClerkProvider, ClerkLoaded } from '@clerk/clerk-expo'
+import {Slot} from "expo-router";
 
 const tokenCache = {
   async getToken(key: string) {
@@ -39,12 +35,14 @@ if (!publishableKey) {
   )
 }
 
-export default function RootLayout() {
+function RootLayoutNav() {
   return (
-    <ClerkProvider publishableKey={publishableKey} tokenCache={tokenCache}>
+    <ClerkProvider tokenCache={tokenCache} publishableKey={publishableKey}>
       <ClerkLoaded>
         <Slot />
       </ClerkLoaded>
     </ClerkProvider>
-  );
+  )
 }
+
+export default RootLayoutNav;
