@@ -39,7 +39,9 @@ function RootLayoutNav() {
   return (
     <ClerkProvider tokenCache={tokenCache} publishableKey={publishableKey}>
       <ClerkLoaded>
-        <Slot />
+        <Slot screenOptions={{
+          headerShown: false,
+        }} />
       </ClerkLoaded>
     </ClerkProvider>
   )

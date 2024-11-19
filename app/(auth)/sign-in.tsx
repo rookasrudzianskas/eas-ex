@@ -2,14 +2,14 @@
 import React from 'react';
 import {Text, View, StyleSheet} from 'react-native';
 
-const JoinPage = () => {
+const SignInScreen = () => {
   return (
     <View>
       <Text>
-        byrookas 🚀
+        Sign In 🚀
       </Text>
     </View>
   );
 };
 
-export default JoinPage;
+export default SignInScreen;
