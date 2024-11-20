@@ -9,13 +9,22 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.rooookas.expoesn"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.BLUETOOTH",
+        "android.permission.BLUETOOTH_CONNECT",
+        "android.permission.BLUETOOTH_ADMIN"
+      ],
+      "package": "com.rooookas.expoesn"
     },
     "web": {
       "bundler": "metro",
@@ -32,10 +41,45 @@
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
         }
+      ],
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "minSdkVersion": 24
+          }
+        }
+      ],
+      [
+        "@stream-io/video-react-native-sdk",
+        [
+          "@config-plugins/react-native-webrtc",
+          {
+            "cameraPermission": "$(PRODUCT_NAME) requires camera access in order to capture and transmit video",
+            "microphonePermission": "$(PRODUCT_NAME) requires microphone access in order to capture and transmit audio"
+          }
+        ]
+      ],
+      [
+        "react-native-permissions",
+        {
+          "iosPermissions": [
+            "Camera",
+            "Microphone"
+          ]
+        }
       ]
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "e1060b7c-216f-4c45-8cd5-37b7f39e6403"
+      }
     }
   }
 }
