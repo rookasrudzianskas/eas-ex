@@ -1,12 +1,16 @@
 //@ts-nocheck
 import React from 'react';
 import {Text, View, StyleSheet, SafeAreaView} from 'react-native';
-import {Tabs} from "expo-router";
+import {Redirect, Tabs} from "expo-router";
 import {Ionicons} from "@expo/vector-icons";
 import {useAuth} from "@clerk/clerk-expo";
 
 const CallRoutesLayout = () => {
   const { isSignedIn } = useAuth();
+
+  if(!isSignedIn) {
+    return <Redirect href={"/(auth)/sign-in"} />
+  }
 
   return (
     <SafeAreaView style={{ flex: 1}}>

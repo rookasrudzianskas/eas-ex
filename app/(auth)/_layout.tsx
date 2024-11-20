@@ -12,7 +12,7 @@ const AuthRoutesLayout = () => {
   }
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{flex: 1}}>
       <Stack>
         <Stack.Screen
           name={'sign-in'}

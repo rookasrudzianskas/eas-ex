@@ -1,13 +1,14 @@
 //@ts-nocheck
 import React from 'react';
-import {Text, View, StyleSheet} from 'react-native';
+import {Text, View, StyleSheet, SafeAreaView} from 'react-native';
 
 const SignInScreen = () => {
   return (
-    <View>
-      <Text>
+    <View style={{flex: 1}}>
+      <Text style={{color: 'black'}}>
         Sign In 🚀
       </Text>
+
     </View>
   );
 };
