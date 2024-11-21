@@ -53,7 +53,7 @@ export default function IndexScreen() {
   }
 
   return (
-    <View>
+    <View style={{ paddingVertical: 10 }}>
       <TouchableOpacity
         style={{
           position: "absolute",
@@ -141,7 +141,7 @@ export default function IndexScreen() {
                     <Text style={{ fontSize: 12}}>{item.state.createdBy?.custom.email}</Text>
                   </View>
 
-                  <View>
+                  <View style={{ alignItems: 'flex-end', gap: 50}}>
                     <Text style={{ fontSize: 10, textAlign: 'center', width: 100}}>
                       {formatSlug(item.id)}
                     </Text>
