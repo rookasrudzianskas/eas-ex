@@ -4,6 +4,8 @@ import {Text, View, StyleSheet, ActivityIndicator} from 'react-native';
 import {Call, CallingState, StreamCall, useStreamVideoClient} from "@stream-io/video-react-native-sdk";
 import {useLocalSearchParams} from "expo-router";
 import { generateSlug } from "random-word-slugs";
+import Toast from "react-native-root-siblings";
+import {copySlug} from "@/lib/slugs";
 
 const CallScreen = () => {
   const { id } = useLocalSearchParams();
@@ -32,6 +34,14 @@ const CallScreen = () => {
       const _call = client?.call("default", slug);
       _call?.join({ create: true }).then(() => {
         // toast popup
+        Toast.show('Call created', {
+          duration: Toast.durations.LONG,
+          position: Toast.positions.BOTTOM,
+          shadow: true,
+          onPress: async () => {
+            copySlug(slug);
+          }
+        });
         setCall(_call);
       })
     }

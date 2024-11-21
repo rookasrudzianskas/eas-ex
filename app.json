@@ -10,7 +10,11 @@
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.rooookas.expoesn"
+      "bundleIdentifier": "com.rooookas.expoesn",
+      "infoPlist": {
+        "NSCameraUsageDescription": "$(PRODUCT_NAME) uses your camera to capture and transmit video",
+        "NSMicrophoneUsageDescription": "$(PRODUCT_NAME) uses your microphone to capture and transmit audio"
+      }
     },
     "android": {
       "adaptiveIcon": {
