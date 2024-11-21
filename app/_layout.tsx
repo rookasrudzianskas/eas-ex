@@ -1,6 +1,7 @@
 import * as SecureStore from 'expo-secure-store'
 import { ClerkProvider, ClerkLoaded } from '@clerk/clerk-expo'
 import {Slot} from "expo-router";
+import {RootSiblingParent} from "react-native-root-siblings";
 
 const tokenCache = {
   async getToken(key: string) {
@@ -39,9 +40,11 @@ function RootLayoutNav() {
   return (
     <ClerkProvider tokenCache={tokenCache} publishableKey={publishableKey}>
       <ClerkLoaded>
-        <Slot screenOptions={{
-          headerShown: false,
-        }} />
+        <RootSiblingParent>
+          <Slot screenOptions={{
+            headerShown: false,
+          }} />
+        </RootSiblingParent>
       </ClerkLoaded>
     </ClerkProvider>
   )

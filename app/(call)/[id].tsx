@@ -3,6 +3,7 @@ import React, {useEffect, useState} from 'react';
 import {Text, View, StyleSheet, ActivityIndicator} from 'react-native';
 import {Call, CallingState, StreamCall, useStreamVideoClient} from "@stream-io/video-react-native-sdk";
 import {useLocalSearchParams} from "expo-router";
+import { generateSlug } from "random-word-slugs";
 
 const CallScreen = () => {
   const { id } = useLocalSearchParams();
@@ -21,7 +22,13 @@ const CallScreen = () => {
         setCall(_call);
       });
     } else {
-      slug = 'demoroom';
+      slug = generateSlug(3, {
+        categories: {
+          adjective: ['color', 'personality'],
+          noun: ['animals', 'food']
+        },
+      });
+
       const _call = client?.call("default", slug);
       _call?.join({ create: true }).then(() => {
         // toast popup
