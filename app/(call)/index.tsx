@@ -1,6 +1,6 @@
 import {SignedIn, SignedOut, useAuth, useUser} from '@clerk/clerk-expo'
 import {Link, useRouter} from 'expo-router'
-import {FlatList, Image, Text, TouchableOpacity, View} from 'react-native'
+import {FlatList, Image, Switch, Text, TouchableOpacity, View} from 'react-native'
 import {Entypo, Feather, MaterialCommunityIcons} from "@expo/vector-icons";
 import {useEffect, useState} from "react";
 import Dialog from "react-native-dialog";
@@ -76,6 +76,28 @@ export default function IndexScreen() {
           setDialogOpen(false);
         }} />
       </Dialog.Container>
+
+      <View
+        style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', gap: 10, padding: 10}}
+      >
+        <Text style={{
+          color: isMyCalls ? 'black' : '#5F5DEC'
+        }} onPress={() => setIsMyCalls(false)}>
+          All Calls
+        </Text>
+        <Switch
+          trackColor={{ false: "#5F5DEC", true: "#5F5DEC" }}
+          thumbColor={'white'}
+          ios_backgroundColor="#5F5DEC"
+          onValueChange={() => setIsMyCalls(!isMyCalls)}
+          value={isMyCalls}
+        />
+        <Text style={{
+          color: !isMyCalls ? 'black' : '#5F5DEC'
+        }} onPress={() => setIsMyCalls(true)}>
+          My Calls
+        </Text>
+      </View>
 
       <FlatList
         data={calls}

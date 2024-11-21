@@ -61,7 +61,7 @@ const JoinPage = () => {
           justifyContent: 'center',
         }}
       >
-
+        <Text style={{fontWeight: 'bold', color: 'white'}}>Join</Text>
       </TouchableOpacity>
     </View>
   );
