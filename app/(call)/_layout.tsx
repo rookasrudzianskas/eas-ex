@@ -51,7 +51,7 @@ const CallRoutesLayout = () => {
     return data.token;
   }
 
-  const client = new StreamVideoClient.getCreateInstance({
+  const client = new StreamVideoClient.getOrCreateInstance({
     apiKey,
     user,
     tokenProvider,
