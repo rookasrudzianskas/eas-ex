@@ -6,6 +6,7 @@ import {useLocalSearchParams} from "expo-router";
 import { generateSlug } from "random-word-slugs";
 import Toast from "react-native-root-siblings";
 import {copySlug} from "@/lib/slugs";
+import Room from "@/components/room";
 
 const CallScreen = () => {
   const { id } = useLocalSearchParams();

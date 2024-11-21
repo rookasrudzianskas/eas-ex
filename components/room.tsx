@@ -11,7 +11,7 @@ const Room = ({ slug } : { slug: string }) => {
   const router = useRouter();
 
   return (
-    <View>
+    <View style={{flex: 1}}>
       <View style={{
         position: 'absolute',
         top: 10,
